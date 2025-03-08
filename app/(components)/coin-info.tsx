@@ -9,7 +9,7 @@ import api from "@/services";
 export default function BitcoinInfo() {
  const {coin, coinData,allCoinsData} = useContext(Context);
 
-console.log('allCoins',allCoinsData);
+console.log('coinData',coinData);
 const [isHovering, setIsHovering] = useState(false);
 
 const handleClick = () => {

@@ -144,10 +144,19 @@ interface Coin {
     filterCoins: filterCoinData[];
   }
 
+interface coinHData {
+    date: string;
+    price: number;
+
+}
+  interface coinData {
+    inr?: string;
+  }
+
 interface ContextProps {
   allCoinsData: allCoinsData;
-  coinData: any;
-  coinHData: any[];
+  coinData: coinData;
+  coinHData: coinHData[];
   coin: Coin;
 
 setCoin : React.Dispatch<React.SetStateAction<Coin>>;
@@ -183,7 +192,8 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
     const response = await axios.get(
       `https://api.coingecko.com/api/v3/coins/${coin.name.toLowerCase()}/market_chart?vs_currency=${coin.currency}&days=${coin.days}&interval=daily`, options
     );
-    return response.data.prices.map((item: any) => ({
+    console.log('response',response.data)
+    return response.data.prices.map((item: [number,number]) => ({
       date: new Date(item[0]).toLocaleDateString("en-US", {
         month: "short",
         day: "2-digit",
@@ -205,7 +215,7 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
     console.log('response',response.data)
     return { 
         allCoins : response.data,
-        filterCoins: response.data.filter((Coin:any)=>Coin.name.toLowerCase()===coin.name.toLowerCase())};
+        filterCoins: response.data.filter((Coin:{name:string})=>Coin.name.toLowerCase()===coin.name.toLowerCase())};
   };
 
   // Fetch data using React Query

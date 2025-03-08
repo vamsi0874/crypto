@@ -29,7 +29,7 @@ export const logout = async ()=>{
     await signOut({redirectTo:"/"})
 }
 
-export const registerCred = async (data:any)=>{
+export const registerCred = async (data:{username:string,password:string})=>{
     try {
         console.log('regCred',data)
      await signIn("credentials",{

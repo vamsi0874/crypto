@@ -59,7 +59,7 @@ console.log(error)
 
 console.log(isSignup)
 
-  const get_token = async (data:any) => {
+  const get_token = async (data:{username:string,password:string})=>{
     try {
       const res = await api.post('/token/', {
         username : data.username,
@@ -75,7 +75,7 @@ console.log(isSignup)
   }
 }
 
-  const onSubmit = async (data:any) => {
+  const onSubmit = async (data:{username:string,password:string}) => {
     console.log(data)
     // router.push('/watchlist')
     if(isSignup){

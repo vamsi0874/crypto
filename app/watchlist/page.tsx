@@ -28,11 +28,11 @@ interface TrendingCoin {
 }
 
 export default function Watchlist() {
-  const [watchList, setWatchList] = useState<any[]>([]);
+  const [watchList, setWatchList] = useState<{id:number,title:string}[]>([]);
   const [finalCoins, setFinalCoins] = useState<TrendingCoin[]>([]);
 
 const router = useRouter()
- const deleteCoin = async ({ id }: any) => {
+ const deleteCoin = async ({ id }: { id:  number | string | undefined; }) => {
   console.log('id', id);
   try {
     await api.delete(`/coins/delete/${id}/`);
@@ -88,7 +88,7 @@ const router = useRouter()
     return Titles.includes(coin.item.name.toLowerCase())
   }
   ).map((coin)=>({
-    id: watchList.find((item)=>item.title.toLowerCase()===coin.item.name.toLowerCase()).id,
+    id: watchList.find((item)=>item.title.toLowerCase()===coin.item.name.toLowerCase())?.id,
     ...coin
   })) 
 
@@ -167,11 +167,12 @@ const router = useRouter()
                     <td className="px-4 py-3">{rank}</td>
                     <td className="px-4 py-3 flex items-center gap-2">
                       {/* If you want a thumbnail image */}
-                      <img
+                      <Image src={thumb} width={20} height={20} alt="Bitcoin Logo" />
+                      {/* <img
                         src={thumb}
                         alt={name}
                         className="w-5 h-5 rounded-full"
-                      />
+                      /> */}
                       <span className="font-medium">{name}</span>
                       <span className="text-xs text-gray-400 uppercase">
                         {symbol}

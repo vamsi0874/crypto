@@ -20,7 +20,7 @@ interface Coin {
 const BitcoinChart = () => {
   const { coinHData, allCoinsData, setCoin, coin } = useContext(Context);
 
-  // console.log('allCoinsData',allCoinsData)
+  console.log('coinHData',coinHData)
 
   // Handler to update the selected coin's name
   const handleCoinChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
