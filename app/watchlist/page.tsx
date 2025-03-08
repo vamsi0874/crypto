@@ -45,7 +45,7 @@ const router = useRouter()
     // 1) Fetch your saved watchlist from the backend
     const fetchDbCoins = async () => {
       try {
-        const res = await api.get("http://127.0.0.1:8000/api/coins/add/");
+        const res = await api.get("/api/coins/add/");
         // Suppose each object is { title: "bitcoin", ... }
         console.log('res',res.data)
         const dbCoins: { id:number,title: string }[] = res.data;

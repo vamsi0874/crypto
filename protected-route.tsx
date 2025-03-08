@@ -35,7 +35,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
           try {
             const response = await axios.post(
-              "http://127.0.0.1:8000/api/token/refresh/",
+              `${process.env.NEXT_PUBLIC_API_URL}/token/refresh/`,
               { refresh: refreshToken },
               { headers: { "Content-Type": "application/json" } }
             );

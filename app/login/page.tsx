@@ -3,30 +3,10 @@ import { useState } from "react";
 import {  useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import axios from "axios";
 import {  useRouter } from 'next/navigation';
+import api from "@/services";
 
 
-const api = axios.create({
-  baseURL: "http://127.0.0.1:8000/api",
-});
-
-api.interceptors.request.use(
-  (config) => {
-    
-    const token = localStorage.getItem('access_token')
-    console.log('token',token)
-    if(token){
-    config.headers.Authorization = `Bearer ${token}`
-    
-    }
-    return config
-  },
-  (error) => {
-    console.log('hiiiiiiiiiii')
-    return Promise.reject(error)
-  }
-)
 
 // Validation Schemas
 const signupSchema = z.object({
@@ -61,7 +41,7 @@ console.log(isSignup)
 
   const get_token = async (data:{username:string,password:string})=>{
     try {
-      const res = await api.post('/token/', {
+      const res = await api.post('/api/token/', {
         username : data.username,
         password : data.password,
       })
