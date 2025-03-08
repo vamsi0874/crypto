@@ -64,7 +64,7 @@ console.log(error)
           username : data.username,
           password : data.password,
       })
-      const user = await res.data
+   
    
 
       // router.push('/watchlist')
