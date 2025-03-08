@@ -17,7 +17,7 @@ export default function Fundamentals() {
     const ath = filterCoins[0]?.ath || 0;
     const atl = filterCoins[0]?.atl || 0;
   
-    // Calculate percentage changes
+    
     const athChange = ((currentPrice - ath) / ath) * 100;
     const atlChange = ((currentPrice - atl) / atl) * 100;
   
@@ -36,7 +36,7 @@ export default function Fundamentals() {
       <div className="w-full mx-auto p-6 bg-white shadow-md rounded-lg">
         <h2 className="text-lg font-semibold text-gray-700 mb-4">Fundamentals</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left Section */}
+        
           <div>
             {fundamentals.map((item) => (
               <div key={item.label} className="flex justify-between py-2 border-b last:border-none">
@@ -46,7 +46,6 @@ export default function Fundamentals() {
             ))}
           </div>
   
-          {/* Right Section */}
           <div>
             {marketData.map((item) => (
               <div key={item.label} className="flex justify-between py-2 border-b last:border-none">

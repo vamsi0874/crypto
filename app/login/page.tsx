@@ -8,7 +8,7 @@ import api from "@/services";
 
 
 
-// Validation Schemas
+
 const signupSchema = z.object({
   username: z.string().min(2, "Name must be at least 2 characters"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -37,7 +37,7 @@ console.log(error)
     resolver: zodResolver(isSignup ? signupSchema : loginSchema),
   });
 
-console.log(isSignup)
+
 
   const get_token = async (data:{username:string,password:string})=>{
     try {
@@ -56,17 +56,16 @@ console.log(isSignup)
 }
 
   const onSubmit = async (data:{username:string,password:string}) => {
-    console.log(data)
     // router.push('/watchlist')
     if(isSignup){
       try {
         
-        const res = await api.post('/user/register/', {
+        const res = await api.post('/api/user/register/', {
           username : data.username,
           password : data.password,
       })
       const user = await res.data
-      console.log('user',user)
+   
 
       // router.push('/watchlist')
       
@@ -81,8 +80,7 @@ console.log(isSignup)
       if(tokens){
         localStorage.setItem('access_token', tokens.access);
         localStorage.setItem('refresh_token', tokens.refresh);
-        console.log(tokens.access) 
-  
+       
         router.push('/')
       }else {
         setError({message:'Invalid Credentials'})

@@ -9,13 +9,13 @@ const MainNavbar = () => {
   const router = useRouter();
   const [isAuthorized, setIsAuthorized] = useState(false);
 
-  // Load the token after component mounts (client-only)
+  
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     setIsAuthorized(!!token);
   }, []);
 
-  // Handle auth button click: login if not authorized, logout if authorized
+ 
   const handleAuthClick = () => {
     if (isAuthorized) {
       localStorage.removeItem("access_token");
@@ -26,7 +26,7 @@ const MainNavbar = () => {
     }
   };
 
-  // Watchlist button: if authorized, go to watchlist, otherwise prompt login
+ 
   const handleWatchlistClick = () => {
     if (isAuthorized) {
       router.push("/watchlist");
@@ -38,7 +38,7 @@ const MainNavbar = () => {
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo/Title */}
+     
         <div>
           <button
             onClick={() => router.push("/")}
@@ -51,7 +51,7 @@ const MainNavbar = () => {
             Cryptocurrency
           </span>
         </div>
-        {/* Navigation Links */}
+      
         <div className="flex items-center gap-6">
           <button
             onClick={handleWatchlistClick}

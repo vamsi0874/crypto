@@ -4,9 +4,9 @@ import { ChevronRight } from "lucide-react";
 export default function Sentiment() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Scroll right function
+ 
   const scrollRight = () => {
-    console.log("scrolling right", scrollRef);
+
     if (scrollRef.current) {
       scrollRef.current?.scrollBy({ left: 300, behavior: "smooth" });
     }
@@ -21,12 +21,12 @@ export default function Sentiment() {
       </p>
 
       <div className="relative">
-        {/* Scrollable Container */}
+
         <div
           ref={scrollRef}
           className="flex space-x-4 overflow-x-auto scroll-smooth no-scrollbar"
         >
-          {/* First Card */}
+      
           <div className="min-w-[320px] bg-blue-50 p-4 rounded-lg border border-blue-100">
             <div className="flex items-center space-x-2 mb-2">
               <div className="bg-blue-500 text-white p-2 rounded-full">
@@ -43,7 +43,7 @@ export default function Sentiment() {
             </p>
           </div>
 
-          {/* Second Card */}
+       
           <div className="min-w-[320px] bg-green-50 p-4 rounded-lg border border-green-100">
             <div className="flex items-center space-x-2 mb-2">
               <div className="bg-green-500 text-white p-2 rounded-full">
@@ -61,7 +61,7 @@ export default function Sentiment() {
           </div>
         </div>
 
-        {/* Scroll Button */}
+    
         <button
           onClick={scrollRight}
           className="absolute top-1/2 right-[-20px] transform -translate-y-1/2 bg-gray-200 p-2 rounded-full shadow-md hover:bg-gray-300"

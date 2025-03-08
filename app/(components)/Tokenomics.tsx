@@ -15,8 +15,7 @@ const data = [
   { name: "Foundation", value: 20 },
 ];
 
-const COLORS = ["#4F46E5", "#F59E0B"]; // Example colors
-
+const COLORS = ["#4F46E5", "#F59E0B"]; 
 export default function Tokenomics() {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
@@ -24,7 +23,7 @@ export default function Tokenomics() {
       <h3 className="text-xl font-medium mb-2">Initial Distribution</h3>
 
       <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-        {/* Donut Chart Section */}
+        
         <div className="w-full md:w-1/2" style={{ height: 300 }}>
           <ResponsiveContainer>
             <PieChart>
@@ -48,7 +47,7 @@ export default function Tokenomics() {
           </ResponsiveContainer>
         </div>
 
-        {/* Description Section */}
+       
         <div className="w-full md:w-1/2">
           <p className="text-gray-700 leading-relaxed">
             Lorem ipsum dolor sit amet consectetur. Cras aliquet tristique ornare

@@ -21,7 +21,7 @@ export const getTrendingCoins = async ()=>{
 
 
 export const login = async ()=>{
-    console.log('login')
+
     await signIn("github")
 }
 
@@ -31,7 +31,7 @@ export const logout = async ()=>{
 
 export const registerCred = async (data:{username:string,password:string})=>{
     try {
-        console.log('regCred',data)
+   
      await signIn("credentials",{
 
         redirect:false,

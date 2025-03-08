@@ -9,13 +9,13 @@ import api from "@/services";
 export default function BitcoinInfo() {
  const {coin, coinData,allCoinsData} = useContext(Context);
 
-console.log('coinData',coinData);
+
 const [isHovering, setIsHovering] = useState(false);
 
 const handleClick = () => {
-  //  addCoin()
+  
  try {
-    api.post('/coins/add/', {
+    api.post('/api/coins/add/', {
         title:`${coin.name}`,
         content:"good"
     })
@@ -28,7 +28,7 @@ const handleClick = () => {
   return (
     <div className="w-full p-6">
       <div className="flex items-center space-x-3">
-        {/* <img src="/bitcoin-icon.png" alt="Bitcoin Logo" className="w-8 h-8" /> */}
+       
         <h1 onClick={handleClick} className=" cursor-pointer text-2xl font-bold "
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}

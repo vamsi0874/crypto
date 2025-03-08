@@ -41,7 +41,7 @@ export default function Team() {
       <div className="space-y-4">
         {teamMembers.map((member, idx) => (
           <div key={idx} className="p-4 bg-gray-50 rounded-md shadow flex gap-4">
-            {/* Replace with your icon path */}
+           
             <Image
               src="https://cdn-icons-png.flaticon.com/512/194/194938.png"
               alt="Team Member Icon"

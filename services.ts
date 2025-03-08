@@ -17,7 +17,7 @@ api.interceptors.request.use(
   (config) => {
     
     const token = localStorage.getItem('access_token')
-    console.log('token',token)
+ 
     if(token){
     config.headers.Authorization = `Bearer ${token}`
     
@@ -25,7 +25,7 @@ api.interceptors.request.use(
     return config
   },
   (error) => {
-    console.log('hiiiiiiiiiii')
+
     return Promise.reject(error)
   }
 )

@@ -20,17 +20,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials, req) {
         let user = null
-        console.log(credentials)
+      
        
         try {
        const res =  await axios.post('http://127.0.0.1:8000/api/token/', {username:credentials.username,password:credentials.password})
-       console.log('res signin',res)
+      
 
          const data = await res.data
         const decoded = jwtDecode<MyJwtPayload>(data.access)   
-        console.log('details',decoded)
-        console.log('user',data)
-
+        
           user =  {
           id: decoded?.user_id.toString(),
     

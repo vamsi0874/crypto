@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import api from "@/services"; // Your Axios instance
+import api from "@/services"; 
 import {  getTrendingCoins } from "../(lib)/actions/auth";
 import Image from "next/image";
 import { FaTrashAlt } from 'react-icons/fa'
@@ -33,21 +33,21 @@ export default function Watchlist() {
 
 const router = useRouter()
  const deleteCoin = async ({ id }: { id:  number | string | undefined; }) => {
-  console.log('id', id);
+ 
   try {
-    await api.delete(`/coins/delete/${id}/`);
-    await fetchDbCoins(); // Fetch the updated watchlist
+    await api.delete(`/api/coins/delete/${id}/`);
+    await fetchDbCoins(); 
   } catch (error) {
     console.error("Error deleting coin:", error);
   }
 };
 
-    // 1) Fetch your saved watchlist from the backend
+    
     const fetchDbCoins = async () => {
       try {
         const res = await api.get("/api/coins/add/");
-        // Suppose each object is { title: "bitcoin", ... }
-        console.log('res',res.data)
+       
+      
         const dbCoins: { id:number,title: string }[] = res.data;
         const coinTitles = dbCoins.map((coin) => 
           ({
@@ -57,16 +57,15 @@ const router = useRouter()
           })
       );
         setWatchList(coinTitles);
-        console.log('coinTitles',coinTitles)
+     
       } catch (error) {
         console.error("Error fetching DB coins:", error);
       }
     };
 
-    // 2) Fetch trending coins from CoinGecko
     const fetchTrending = async () => {
       try {
-        const data = await getTrendingCoins(); // your existing function
+        const data = await getTrendingCoins(); 
         const trendingCoins: TrendingCoin[] = data.coins;
         setFinalCoins(trendingCoins);
       } catch (error) {
@@ -80,8 +79,7 @@ const router = useRouter()
     fetchTrending();
   }, []);
 
-  // Filter finalCoins to only include those in watchList
-  console.log('watch',watchList)
+
 
   const filteredCoins = finalCoins.filter((coin) =>{
     const Titles = watchList.map((coin)=>coin.title.toLowerCase())
@@ -92,7 +90,6 @@ const router = useRouter()
     ...coin
   })) 
 
-  console.log("filteredCoins", filteredCoins);
 
   return (
     <div className="w-full px-4 py-6">

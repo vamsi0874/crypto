@@ -65,7 +65,6 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   // If the route is protected and the user isn't authorized, perform client-side redirect
   if (isProtected && !isAuthorized) {
-    console.log('hiiiiiii')
     router.push("/login");
     return null;
   }

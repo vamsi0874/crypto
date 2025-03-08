@@ -17,11 +17,8 @@ import MainNavbar from "./(components)/main-navbar";
 
 
 const App = () => {
-  // Manage active tab here
+
   const [activeTab, setActiveTab] = useState("Overview");
-
-  // Render content based on activeTab
-
   
   const renderContent = () => {
     switch (activeTab) {
@@ -62,25 +59,15 @@ const App = () => {
     <div>   
       <MainNavbar/>
     <div className="flex flex-row gap-6 p-6">
-      {/* Main Content */}
-      
-      
-        
-      {/* <div>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={()=>login()}>github login</button>
-        <button onClick={()=>logout()}>logout</button>
-     
-
-      </div> */}
+    
       
       <div className="w-3/4 space-y-6">
       
-        {/* Pass activeTab state and setter to Navbar */}
+       
         <BitcoinInfo/>
         <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
         {renderContent()}
       </div>
-      {/* Sidebar */}
       <Sidebar />
   
     </div>

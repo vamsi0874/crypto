@@ -20,9 +20,9 @@ interface Coin {
 const BitcoinChart = () => {
   const { coinHData, allCoinsData, setCoin, coin } = useContext(Context);
 
-  console.log('coinHData',coinHData)
 
-  // Handler to update the selected coin's name
+
+  
   const handleCoinChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCoin((prev) => ({ ...prev, name: e.target.value }));
   };
@@ -37,9 +37,8 @@ const BitcoinChart = () => {
         {coin.name} Price Chart (USD)
       </h3>
 
-      {/* Dropdown Selectors */}
       <div className="flex items-center space-x-4 mb-4">
-        {/* Range Selector */}
+        
         <div>
           <label className="mr-2 font-medium">Select Range:</label>
           <select
@@ -55,7 +54,6 @@ const BitcoinChart = () => {
           </select>
         </div>
 
-        {/* Coin Selector */}
         <div>
           <label className="mr-2 font-medium">Select Coin:</label>
           <select
@@ -72,7 +70,7 @@ const BitcoinChart = () => {
         </div>
       </div>
 
-      {/* Line Chart */}
+  
       {
         coinHData.length > 0 ? 
       <ResponsiveContainer width="100%" height={300}>

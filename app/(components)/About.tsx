@@ -5,10 +5,10 @@ export default function About() {
     const {allCoinsData:{filterCoins}} = useContext(Context);
     return (
       <div className="w-full mx-auto p-6 bg-white">
-        {/* Heading */}
+       
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">About {filterCoins[0]?.name}</h2>
   
-        {/* What is Bitcoin? Section */}
+       
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-gray-700 mb-2">What is {filterCoins[0]?.name}?</h3>
                     <p className="text-gray-800">
@@ -37,7 +37,7 @@ export default function About() {
 
         </div>
   
-        {/* Placeholder Content */}
+       
         <div>
           <h3 className="text-lg font-semibold text-gray-700 mb-2">Lorem ipsum dolor sit amet</h3>
           <p className="text-gray-600 mb-4">

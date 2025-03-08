@@ -36,7 +36,7 @@ export default function Sidebar() {
   const handleClick = (name:string)=>{
   
    try {
-      api.post('/coins/add/', {
+      api.post('/api/coins/add/', {
           title:`${name}`,
           content:"good"
       })
@@ -56,7 +56,7 @@ export default function Sidebar() {
       },
     });
     const data = await response.data;
-    console.log(data)
+  
 
 
     const res: CoinItem[] = data.coins
@@ -83,18 +83,9 @@ export default function Sidebar() {
 
   return (
     <div className="w-1/3 p-6">
-      {/* KoinX Section */}
-      {/* <div className="bg-blue-600 text-white p-6 rounded-lg">
-        <h2 className="text-xl font-bold">Get Started with KoinX for FREE</h2>
-        <p className="mt-2 text-sm">
-          With our range of features that you can equip for free, KoinX allows you to be more educated and aware of your tax reports.
-        </p>
-        <button className="mt-4 bg-white text-blue-600 px-4 py-2 rounded-md font-semibold">
-          Get Started for FREE →
-        </button>
-      </div> */}
+  
 
-      {/* Trending Coins */}
+
       <div className="mt-6">
         <h3 className="text-lg font-semibold">Trending Coins (24h)</h3>
   <ul className="w-full  text-sm">
