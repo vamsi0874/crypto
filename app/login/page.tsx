@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import axios from "axios";
 import {  useRouter } from 'next/navigation';
-import { registerCred } from "@/app/(lib)/actions/auth";
 
 
 const api = axios.create({
@@ -47,7 +46,7 @@ const AuthForm = () => {
   const [error, setError] = useState({
     message:''
   });
-
+console.log(error)
   const router = useRouter();
 
   const {

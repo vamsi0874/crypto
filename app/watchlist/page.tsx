@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 
 import api from "@/services"; // Your Axios instance
@@ -130,7 +129,7 @@ const router = useRouter()
                   market_cap_rank,
                   name,
                   symbol,
-                  price_btc,
+                
                   thumb,
                   data,
                 } = coin.item;
@@ -157,7 +156,7 @@ const router = useRouter()
                 const volumeStr = volume24h
                   ? `${volume24h.toLocaleString()}`
                   : "—";
-                const supplyStr = "—"; // Placeholder if you don't have supply data
+                
                 const last7DaysStr = sparkline ? <Image src={sparkline} width={60} height={60} alt="Bitcoin Logo" className="w-8 h-8" /> : "—";
 
                 return (

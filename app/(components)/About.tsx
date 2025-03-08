@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Context } from "../(context)/context";
 
 export default function About() {
-    const {coinHData,allCoinsData:{filterCoins},coinData} = useContext(Context);
+    const {allCoinsData:{filterCoins}} = useContext(Context);
     return (
       <div className="w-full mx-auto p-6 bg-white">
         {/* Heading */}
@@ -12,7 +12,7 @@ export default function About() {
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-gray-700 mb-2">What is {filterCoins[0]?.name}?</h3>
                     <p className="text-gray-800">
-                    {filterCoins[0]?.name}'s current price is 
+                    {filterCoins[0]?.name}&apos;s current price is 
             <span className="font-medium"> ${filterCoins[0]?.current_price}</span>, 
             with a <span className="font-medium">24-hour trading volume of $ {filterCoins[0]?.total_volume}</span>. 
             Over the past 24 hours, {filterCoins[0].symbol} has experienced a 

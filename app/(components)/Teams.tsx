@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 
 const teamMembers = [
@@ -41,9 +42,11 @@ export default function Team() {
         {teamMembers.map((member, idx) => (
           <div key={idx} className="p-4 bg-gray-50 rounded-md shadow flex gap-4">
             {/* Replace with your icon path */}
-            <img
+            <Image
               src="https://cdn-icons-png.flaticon.com/512/194/194938.png"
               alt="Team Member Icon"
+              width={64}
+              height={64}
               className="w-16 h-16 object-contain"
             />
             <div>

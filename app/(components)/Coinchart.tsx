@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useContext } from "react";
+import React, {  useContext } from "react";
 import {
   LineChart,
   Line,
@@ -12,9 +12,15 @@ import {
 import { Context } from "../(context)/context";
 import SpinningIcon from "./Loading";
 
+interface Coin {
+    name: string;
+    id:string;
+}
+
 const BitcoinChart = () => {
   const { coinHData, allCoinsData, setCoin, coin } = useContext(Context);
-  const [days, setDays] = useState(7); // Default: 7 Days
+
+  // console.log('allCoinsData',allCoinsData)
 
   // Handler to update the selected coin's name
   const handleCoinChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -57,7 +63,7 @@ const BitcoinChart = () => {
             onChange={handleCoinChange}
             className="p-2 border rounded"
           >
-            {allCoinsData?.allCoins?.map((coinItem: any) => (
+            {allCoinsData?.allCoins?.map((coinItem: Coin) => (
               <option key={coinItem.id} value={coinItem.name}>
                 {coinItem.name}
               </option>

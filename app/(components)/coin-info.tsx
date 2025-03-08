@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import BitcoinChart from "./Coinchart";
 import { Context } from "../(context)/context";
 import api from "@/services";
@@ -45,7 +45,7 @@ const handleClick = () => {
         <h2 className="text-4xl font-bold">${allCoinsData.filterCoins[0]?.current_price}</h2>
         <p className="text-gray-500">{coinData.inr? "₹"+coinData.inr:""}{allCoinsData.filterCoins[0].symbol}</p>
 
-        <p className={`${allCoinsData.filterCoins[0]?.price_change_percentage_24h?.toFixed(2) > 0 ? "text-green-500" : "text-red-500"} font-semibold`}>{allCoinsData.filterCoins[0]?.price_change_percentage_24h?.toFixed(2)}% (24H)</p>
+        <p className={`${parseFloat(allCoinsData.filterCoins[0]?.price_change_percentage_24h?.toFixed(2)) > 0 ? "text-green-500" : "text-red-500"} font-semibold`}>{allCoinsData.filterCoins[0]?.price_change_percentage_24h?.toFixed(2)}% (24H)</p>
       </div>
 
       <div className="mt-6">
