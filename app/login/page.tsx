@@ -60,7 +60,7 @@ console.log(error)
     if(isSignup){
       try {
         
-        const res = await api.post('/api/user/register/', {
+         await api.post('/api/user/register/', {
           username : data.username,
           password : data.password,
       })
