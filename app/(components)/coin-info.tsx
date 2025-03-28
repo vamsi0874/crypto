@@ -1,43 +1,37 @@
 "use client"
 
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import BitcoinChart from "./Coinchart";
 import { Context } from "../(context)/context";
-import api from "@/services";
+
 
 
 export default function BitcoinInfo() {
  const {coin, coinData,allCoinsData} = useContext(Context);
 
 
-const [isHovering, setIsHovering] = useState(false);
+// const [isHovering, setIsHovering] = useState(false);
 
-const handleClick = () => {
+// const handleClick = () => {
   
- try {
-    api.post('/api/coins/add/', {
-        title:`${coin.name}`,
-        content:"good"
-    })
- } catch (error) {
-    console.error('Error adding coin:', error);
- }
-}
+//  try {
+//     api.post('/api/coins/add/', {
+//         title:`${coin.name}`,
+//         content:"good"
+//     })
+
+//  } catch (error) {
+//     console.error('Error adding coin:', error);
+//  }
+// }
 
 
   return (
     <div className="w-full p-6">
       <div className="flex items-center space-x-3">
        
-        <h1 onClick={handleClick} className=" cursor-pointer text-2xl font-bold "
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
+        <h1 className="text-2xl font-bold "
         >{coin.name}</h1>
-        {isHovering && (
-            <span className="absolute top-20 text-gray-500 text-sm  px-2 py-1 rounded-md">
-              (Add to Watchlist)
-            </span>
-          )}
         <span className="bg-gray-300 text-sm px-2 py-1 rounded-md">Rank #{allCoinsData.filterCoins[0]?.market_cap_rank}</span>
       </div>
 

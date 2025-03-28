@@ -47,10 +47,7 @@ export default function RootLayout({
         </ContextProvider>
           
        </QueryProvider>
-      
-     
-  
-        
+ 
       </body>
     </html>
   );
